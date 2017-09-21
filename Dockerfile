@@ -49,7 +49,7 @@ RUN echo 'mysql-server mysql-server/root_password password pass' | debconf-set-s
 RUN echo 'mysql-server mysql-server/root_password_again password pass' | debconf-set-selections
 RUN echo 'mariadb-server mariadb-server/root_password password pass' | debconf-set-selections
 RUN echo 'mariadb-server mariadb-server/root_password_again password pass' | debconf-set-selections
-RUN apt-get -y install postfix postfix-mysql postfix-doc mariadb-server libdbi-perl libdbd-mysql-perl perlapi-5.20.0 mariadb-client-10.0 mariadb-server-10.0 mariadb-client mariadb-server getmail4 rkhunter binutils dovecot-imapd dovecot-pop3d dovecot-mysql dovecot-sieve dovecot-lmtpd sudo
+RUN apt-get -y install postfix postfix-mysql postfix-doc mariadb-server libdbi-perl libdbd-mysql-perl perl-base mariadb-client-10.0 mariadb-server-10.0 mariadb-client mariadb-server getmail4 rkhunter binutils dovecot-imapd dovecot-pop3d dovecot-mysql dovecot-sieve dovecot-lmtpd sudo
 ADD ./etc/postfix/master.cf /etc/postfix/master.cf
 RUN service postfix restart
 RUN service mysql restart
