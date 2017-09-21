@@ -49,7 +49,7 @@ RUN echo 'mysql-server mysql-server/root_password password pass' | debconf-set-s
 RUN echo 'mysql-server mysql-server/root_password_again password pass' | debconf-set-selections
 RUN echo 'mariadb-server mariadb-server/root_password password pass' | debconf-set-selections
 RUN echo 'mariadb-server mariadb-server/root_password_again password pass' | debconf-set-selections
-RUN apt-get -y install postfix postfix-mysql postfix-doc mariadb-client mariadb-server getmail4 rkhunter binutils dovecot-imapd dovecot-pop3d dovecot-mysql dovecot-sieve dovecot-lmtpd sudo
+RUN apt-get -y install postfix postfix-mysql postfix-doc mariadb-server libdbi-perl mariadb-client-10.0 mariadb-server-10.0 mariadb-client mariadb-server getmail4 rkhunter binutils dovecot-imapd dovecot-pop3d dovecot-mysql dovecot-sieve dovecot-lmtpd sudo
 ADD ./etc/postfix/master.cf /etc/postfix/master.cf
 RUN service postfix restart
 RUN service mysql restart
@@ -70,7 +70,7 @@ RUN service mysql restart && apt-get -y install apache2 apache2.2-common apache2
 RUN a2enmod suexec rewrite ssl actions include dav_fs dav auth_digest cgi
 
 # --- 12 XCache and PHP-FPM
-RUN apt-get -y install php5-xcache
+# RUN apt-get -y install php5-xcache
 # php5 fpm (non-free)
 # RUN apt-get -y install libapache2-mod-fastcgi php5-fpm
 # RUN a2enmod actions fastcgi alias
