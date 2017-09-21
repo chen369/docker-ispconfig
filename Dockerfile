@@ -22,7 +22,7 @@ MAINTAINER Chen Chiu <docker-maintainer@anonny.co> version: 0.2
 ENV DEBIAN_FRONTEND noninteractive
 
 # --- 1 Preliminary
-RUN apt-get -y update && apt-get -y upgrade && apt-get -y install rsyslog rsyslog-relp logrotate supervisor
+RUN apt-get -y update && apt-get -y upgrade && apt-get -y install rsyslog rsyslog-relp logrotate supervisor perl-base
 RUN touch /var/log/cron.log
 # Create the log file to be able to run tail
 RUN touch /var/log/auth.log
