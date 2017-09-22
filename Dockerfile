@@ -14,7 +14,7 @@
 
 
 
-FROM debian
+FROM debian:jessie
 
 MAINTAINER Chen Chiu <docker-maintainer@anonny.co> version: 0.2
 
