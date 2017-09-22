@@ -35,7 +35,7 @@ RUN apt-get -y install nano vim-nox
 
 # --- 5 Update Your Debian Installation
 ADD ./etc/apt/sources.list /etc/apt/sources.list
-RUN apt-get -y update && apt-get --force-yes upgrade
+RUN apt-get -y update && apt-get -y --force-yes upgrade
 
 # --- 6 Change The Default Shell
 RUN echo "dash  dash/sh boolean no" | debconf-set-selections
