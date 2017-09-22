@@ -66,7 +66,7 @@ RUN echo 'phpmyadmin phpmyadmin/dbconfig-install boolean true' | debconf-set-sel
 RUN echo 'phpmyadmin phpmyadmin/mysql/admin-pass password pass' | debconf-set-selections
 # RUN echo 'phpmyadmin phpmyadmin/mysql/app-pass password your-app-db-pwd' | debconf-set-selections
 RUN echo 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2' | debconf-set-selections
-RUN service mysql restart && apt-get -y --force-yes install apache2 apache2.2-common apache2-doc apache2-mpm-prefork apache2-utils libexpat1 ssl-cert libapache2-mod-php7.0 php7.0 php7.0-common php7.0-gd php7.0-mysql php7.0-imap phpmyadmin php7.0-cli php7.0-cgi libapache2-mod-fcgid apache2-suexec php-pear php-auth php7.0-mcrypt mcrypt php7.0-imagick imagemagick libruby libapache2-mod-python php5-curl php5-intl php5-memcache php5-memcached php7.0-pspell php7.0-recode php5-sqlite php7.0-tidy php7.0-xmlrpc php7.0-xsl memcached libapache2-mod-passenger
+RUN service mysql restart && apt-get -y --force-yes install apache2 apache2.2-common apache2-doc apache2-mpm-prefork apache2-utils libexpat1 ssl-cert libapache2-mod-php7.0 php7.0 php7.0-common php7.0-xml php7.0-gd php7.0-mysql php7.0-imap phpmyadmin php7.0-cli php-mbstring php7.0-cgi libapache2-mod-fcgid apache2-suexec php-pear php-auth php7.0-mcrypt mcrypt php7.0-imagick imagemagick libruby libapache2-mod-python php7.0-curl php5-intl php-memcache php-memcached php7.0-pspell php7.0-recode php5-sqlite php7.0-tidy php7.0-xmlrpc php7.0-xsl memcached libapache2-mod-passenger
 RUN a2enmod suexec rewrite ssl actions include dav_fs dav auth_digest cgi
 
 # --- 12 XCache and PHP-FPM
